@@ -17,14 +17,9 @@ import django.shortcuts
 import django.utils.encoding
 import django.template.context
 import django.contrib.auth.models
-from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth.models import User
 from django.contrib import messages
-from django.http import HttpResponse
-from django.utils import timezone
 
 # Chango imports
-import settings
 import models
 
 
@@ -59,7 +54,6 @@ def all_render_view(request):
 def detail_render_view(request, chango_id):
 
     template_variables = {}
-    chango = None
 
     try:
         chango = models.Chango.objects.get(pk=chango_id)
