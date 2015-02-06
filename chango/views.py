@@ -27,20 +27,8 @@ def all_render_view(request):
 
     template_variables = {}
     changos = models.Chango.objects.all().order_by('-name')
-    paginator = django.core.paginator.Paginator(changos, 5)
-    page = request.GET.get('page')
 
-    try:
-        requests_page = paginator.page(page)
-
-    except django.core.paginator.PageNotAnInteger:
-        requests_page = paginator.page(1)
-
-    except django.core.paginator.EmptyPage:
-        requests_page = paginator.page(paginator.num_pages)
-
-    template_variables['changos'] = requests_page
-    template_variables['pagination'] = True
+    template_variables['changos'] = changos
 
     template_context =\
         django.template.context.RequestContext(request, template_variables)

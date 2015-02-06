@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
 
-</body>
-</html>
+{% extends "structures/base.html" %}
+{% load static %}
+
+{% block content %}
+	<div class="row">
+		<div class="small-12 large-12  small-centered large-centered columns text-center">
+			<h2>{% block title %} {% endblock %}</h2>
+			{% block icon %} 
+			<img src="{{ STATIC_URL }}/img/icon.png">
+			{% endblock %}
+		</div>
+	</div>
+	{% block changos %} {% endblock %}
+{% endblock %}
